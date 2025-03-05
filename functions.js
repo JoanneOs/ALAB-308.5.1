@@ -11,3 +11,23 @@ function jAverageArrayAlt(numbers){let JSum=0;
     }
     return numbers.length>0?jSum/numbers.length:0;
 }
+//longest string in arrray
+function jLonestStringAlt(strings){
+    let jLongest='';
+    for (let j=0;j<strings.length;j++){
+        if(strings[j].length>jLongest.length){jLongest=strings[j];}
+    }
+    return jLongest;
+}
+//Filter strings longer than a given length:
+function jStringsLongerThanAlt(strings, jLength) {
+    const result = [];
+    for (let i = 0; i < strings.length; i++) {
+      const jStr = strings[i].trim(); // Clean up any spaces
+      if (jStr.length > jLength) {
+        result.push(jStr);
+      }
+    }
+    return result;
+  }
+  
