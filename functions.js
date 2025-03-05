@@ -79,23 +79,25 @@ const jPeople = [
   { id: "7", name: "Bilbo", occupation: "None", age: "111" },
 ];
 
-
 //1-sorting by age
-const jSorteByAge=jPeople.sort((a,b)=>a.age-b.age);
-console.log("Sorted by age: " + jSorteByAge);
+const jSortedByAge = jPeople.sort((a, b) => a.age - b.age);
+console.log("Sorted by age: " + jSortedByAge);
 
 //2-filter out people with age over 50
-const jFilteredByAge=jPeople.filter(jPerson=>jPerson.age<=50);
+const jFilteredByAge = jPeople.filter((jPerson) => jPerson.age <= 50);
 console.log("filtered by age 50:  ", jFilteredByAge);
 
 //3 rename occupation to job and increment age
-const jModifiedArray=[];
-jPeople.forEach(jPerson=>{const jModifiedPerson={id:jPerson.id,
-    name:jPerson.name,
+const jModifiedArray = [];
+jPeople.forEach((jPerson) => {
+  const jModifiedPerson = {
+    id: jPerson.id,
+    name: jPerson.name,
     job: jPerson.occupation,
-    age: parseInt(jPerson.age)+1
-};
-jModifiedArray.push(jModifiedPerson);});
+    age: parseInt(jPerson.age) + 1,
+  };
+  jModifiedArray.push(jModifiedPerson);
+});
 console.log("modified array job and incremented age:  ", jModifiedArray);
 
 ////
@@ -108,34 +110,41 @@ console.log("modified array job and incremented age:  ", jModifiedArray);
  changes to a new copy without affecting it.
 */
 
-function jIncrementAge(jObj){
-    // Check if the object has an "age" property. If not, set it to 0
-    if (!jObj.age){jObj.age=0;}
-    jObj.age++; /// Add 1 to the age 
-    jObj.updated=new Date();
-    return jObj;  //updated object
+function jIncrementAge(jObj) {
+  // Check if the object has an "age" property. If not, set it to 0
+  if (!jObj.age) {
+    jObj.age = 0;
+  }
+  jObj.age++; /// Add 1 to the age
+  jObj.updated = new Date();
+  return jObj; //updated object
 }
-
 
 //// Function 2: Make a copy of the object, increment age, and return the copy
-function jIncrementAgeCopy(jObj){
-    let jObjCopy=[ ...jObj];
-    if (!jObjCopy.age){jObjCopy.age=0;}
+function jIncrementAgeCopy(jObj) {
+  let jObjCopy = [...jObj];
+  if (!jObjCopy.age) {
+    jObjCopy.age = 0;
+  }
 
-jObjCopy.age++;  // Add 1 to the age
+  jObjCopy.age++; // Add 1 to the age
 
-jObjCopy.updated=new Date();
-return jObjCopy; 
+  jObjCopy.updated = new Date();
+  return jObjCopy;
 }
 
-
 // Testing both functions:
-let jPerson = { name: "Bruce", occupation: "Knight", age: 41 };  // This is the person object we start with
+let jPerson = { name: "Bruce", occupation: "Knight", age: 41 }; // This is the person object we start with
 
 console.log("Before Increment:");
-console.log(jPerson);  // Show the original person object before any changes
+console.log(jPerson); // Show the original person object before any changes
 
 // Call the first function to increase the age in the original object
 let jUpdatedPerson = jIncrementAge(jPerson);
 console.log("After Increment (Original):");
-console.log(jUpdatedPerson);  // Show the original object after its age has been increased
+console.log(jUpdatedPerson); // Show the original object after its age has been increased
+
+// Call the second function to make a new copy, increase the age in the new copy, and return the new copy
+let jNewPerson = jIncrementAgeCopy(jPerson);
+console.log("After Increment (New Copy):");
+console.log(jNewPerson);
