@@ -115,3 +115,16 @@ function jIncrementAge(jObj){
     jObj.updated=new Date();
     return jObj;  //updated object
 }
+
+
+//// Function 2: Make a copy of the object, increment age, and return the copy
+function jIncrementAgeCopy(jObj){
+    let jObjCopy=[ ...jObj];
+    if (!jObjCopy.age){jObjCopy.age=0;}
+} jObjCopy.age+=;
+
+jObjCopy.updated=new Date();
+return jObjCopy; 
+/*
+console.log("Before Increment:");
+console.log(jPerson);  // Show the original person object before any changes
