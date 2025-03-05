@@ -88,19 +88,32 @@ const jFilteredByAge = jPeople.filter((jPerson) => jPerson.age <= 50);
 console.log("filtered by age 50:  ", jFilteredByAge);
 
 //3 rename occupation to job and increment age
+// const jModifiedArray = [];
+// jPeople.forEach((jPerson) => {
+//   const jModifiedPerson = {
+//     id: jPerson.id,
+//     name: jPerson.name,
+//     job: jPerson.occupation,
+//     age: parseInt(jPerson.age) + 1,
+//   };
+//   jModifiedArray.push(jModifiedPerson);
+// });
+// console.log("modified array job and incremented age:  ", jModifiedArray);
+
+// ////
+
+// Rename occupation to job and increment age
 const jModifiedArray = [];
 jPeople.forEach((jPerson) => {
   const jModifiedPerson = {
     id: jPerson.id,
     name: jPerson.name,
-    job: jPerson.occupation,
-    age: parseInt(jPerson.age) + 1,
+    job: jPerson.occupation, // Rename occupation to job
+    age: parseInt(jPerson.age) + 1, // Convert age to number and increment
   };
   jModifiedArray.push(jModifiedPerson);
 });
-console.log("modified array job and incremented age:  ", jModifiedArray);
-
-////
+console.log("Modified array (job and incremented age): ", jModifiedArray);
 
 /*follwing the main idea is that the first function changes
  the original object directly, while the second 
@@ -122,7 +135,9 @@ function jIncrementAge(jObj) {
 
 //// Function 2: Make a copy of the object, increment age, and return the copy
 function jIncrementAgeCopy(jObj) {
-  let jObjCopy = [...jObj];
+  // let jObjCopy = [...jObj];//error
+  let jObjCopy = { ...jObj };
+
   if (!jObjCopy.age) {
     jObjCopy.age = 0;
   }
@@ -148,3 +163,17 @@ console.log(jUpdatedPerson); // Show the original object after its age has been 
 let jNewPerson = jIncrementAgeCopy(jPerson);
 console.log("After Increment (New Copy):");
 console.log(jNewPerson);
+
+/*      We made a copy of a person’s information,
+        like their name and age,
+       so we could change it without touching the original information.
+       First, we made a new copy of the person's data
+        using a special trick called "spread,"
+       which helps us grab all the details and put them into a new box.
+       Then, we checked if the person had an age listed, 
+       and if they didn't, 
+        we gave them an age of 0. After that, 
+        we added 1 to their age and wrote down the time 
+        when we made the change. 
+        This way, we kept the original data safe and only changed the copy!
+*/
