@@ -30,4 +30,9 @@ function jStringsLongerThanAlt(strings, jLength) {
     }
     return result;
   }
-  
+  //Print numbers recursively print numbers
+  function jPringNumbersAlt(jNum){
+    if(jNum>0){jPrintNumbersAlt(jNum-1);
+        console.log(jNum);
+    }
+  }
