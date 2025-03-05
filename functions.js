@@ -135,3 +135,7 @@ let jPerson = { name: "Bruce", occupation: "Knight", age: 41 };  // This is the 
 console.log("Before Increment:");
 console.log(jPerson);  // Show the original person object before any changes
 
+// Call the first function to increase the age in the original object
+let jUpdatedPerson = jIncrementAge(jPerson);
+console.log("After Increment (Original):");
+console.log(jUpdatedPerson);  // Show the original object after its age has been increased
