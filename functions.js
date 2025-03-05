@@ -121,10 +121,17 @@ function jIncrementAge(jObj){
 function jIncrementAgeCopy(jObj){
     let jObjCopy=[ ...jObj];
     if (!jObjCopy.age){jObjCopy.age=0;}
-} jObjCopy.age+=;
+
+jObjCopy.age++;  // Add 1 to the age
 
 jObjCopy.updated=new Date();
 return jObjCopy; 
-/*
+}
+
+
+// Testing both functions:
+let jPerson = { name: "Bruce", occupation: "Knight", age: 41 };  // This is the person object we start with
+
 console.log("Before Increment:");
 console.log(jPerson);  // Show the original person object before any changes
+
