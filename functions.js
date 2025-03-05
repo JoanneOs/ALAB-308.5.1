@@ -83,3 +83,7 @@ const jPeople = [
 //1-sorting by age
 const jSorteByAge=jPeople.sort((a,b)=>a.age-b.age);
 console.log("Sorted by age: " + jSorteByAge);
+
+//2-filter out people with age over 50
+const jFilteredByAge=jPeople.filter(jPerson=>jPerson.age<=50);
+console.log("filtered by age 50:  ", jFilteredByAge);
