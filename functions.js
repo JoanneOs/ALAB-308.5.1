@@ -87,3 +87,31 @@ console.log("Sorted by age: " + jSorteByAge);
 //2-filter out people with age over 50
 const jFilteredByAge=jPeople.filter(jPerson=>jPerson.age<=50);
 console.log("filtered by age 50:  ", jFilteredByAge);
+
+//3 rename occupation to job and increment age
+const jModifiedArray=[];
+jPeople.forEach(jPerson=>{const jModifiedPerson={id:jPerson.id,
+    name:jPerson.name,
+    job: jPerson.occupation,
+    age: parseInt(jPerson.age)+1
+};
+jModifiedArray.push(jModifiedPerson);});
+console.log("modified array job and incremented age:  ", jModifiedArray);
+
+////
+
+/*follwing the main idea is that the first function changes
+ the original object directly, while the second 
+ function creates a new copy of the object, 
+ changes that copy, and leaves the original object unchanged. 
+ This way, you can keep the original data safe and make 
+ changes to a new copy without affecting it.
+*/
+
+function jIncrementAge(jObj){
+    // Check if the object has an "age" property. If not, set it to 0
+    if (!jObj.age){jObj.age=0;}
+    jObj.age++; /// Add 1 to the age 
+    jObj.updated=new Date();
+    return jObj;  //updated object
+}
